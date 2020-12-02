@@ -6,16 +6,16 @@
 # #### Author: Alexander Franz
 
 # In[26]:
-
+#%%
 # Import important packages
 import pandas as pd
-import pandas.io.data
+
 import numpy as np
 import matplotlib.pyplot as plt
 import math
 import pytz
 from datetime import datetime
-import zipline as zp
+
 import itertools
 
 
@@ -53,7 +53,7 @@ dax
 # Getting the Data from Yahoo Finance, using the stocks from the "kurzde" list, as Yahoo needs the .DE appendix for German stocks.
 start = datetime(2009, 1, 1, 0, 0, 0, 0, pytz.utc)
 end = datetime(2009, 12, 30, 0, 0, 0, 0, pytz.utc)
-data = zp.utils.factory.load_from_yahoo(stocks = kurzde, indexes={}, start=start, end=end, adjusted=True)
+data = yf.download(tickers)
 data.head()
 
 
